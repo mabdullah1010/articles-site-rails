@@ -1,0 +1,15 @@
+<h1>Creat a new article</h1>
+
+<%= form_with do |form| %>
+  Form contents
+<% end %>
+
+<%= form_with scope: :article, url: articles_path, local: true do |f| %>
+    <p><%= f.label :title%></p>
+    <p><%= f.text_field :title%></p>
+    <p><%= f.label :descriptiontitle%></p>
+    <p><%= f.text_area :description%></p>
+
+<% end %>
+
+#scope is the model name as a symbol and url gives the path (convention)
