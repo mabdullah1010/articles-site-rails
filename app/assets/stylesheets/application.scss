@@ -47,7 +47,8 @@
 .my-button{
     margin-top: 2px;
     margin-bottom: 2px;
-    width: 150px;
+    margin-left: 10px;
+    width: 250px;
 }
 
 .my-card{
@@ -68,4 +69,14 @@
 
 .my-title{
     margin-left: 15px;
+}
+
+.outline{
+    padding: 20px;
+    outline: 20px;
+    background-color: beige;
+}
+
+.my-text{
+    text-align: left;
 }

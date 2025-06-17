@@ -2,10 +2,21 @@
 
 
 
-<p><strong>Title: </strong> <%=@article.title%></p>
+<div class="card text-center my-card shadow mb-5 bg-white rounded">
+<div class="card-header">
+    Muhammad Abdullah
+</div>
+<div class="card-body">
+    <h5 class="card-title for-hover"><%= link_to @article.title, article_path(@article), class:"card-title for-hover"%></h5>
+    <p class="card-text my-text"><%= simple_format(@article.description) %></p>
+    <%= button_to 'Edit', edit_article_path(@article),class:"btn btn-outline-primary my-button", method: :get %> 
+    <%= button_to 'Delete', article_path(@article),class:"btn btn-outline-primary my-button", method: :delete, data: {confirm: "Are you sure?"} %>
+</div>
+<div class="card-footer text-body-secondary">
+    <small>Created : <%= time_ago_in_words(@article.created_at)%> ago, </small>
+    <small>Updated : <%= time_ago_in_words(@article.updated_at)%> ago</small>
 
-<p><strong>Description</strong> <%=@article.description%></p>
+</div>
+</div>
 
-<p><%= button_to 'Edit', edit_article_path(@article), method: :get %></p>
-<p><%= button_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %></p>
-<p><%= button_to 'Return to artcle listing', articles_path(@article), method: :get %></p>
+<p><%= button_to 'Return to artcle listing', articles_path(@article), method: :get,class:"btn btn-primary btn-lg my-button" %></p>
