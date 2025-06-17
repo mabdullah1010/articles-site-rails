@@ -1,32 +1,26 @@
-<h1>Articles listing page</h1>
-
-<table>
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th colspan="3">Actions</th>
-    </tr>
-    </thead>
-
-    <tbody>
-        <% @articles.each do |article| %>
-
-        <tr>
-
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
-            <td><%= button_to 'Show', article_path(article), method: :get %></td>
-            <td><%= button_to 'Edit', edit_article_path(article), method: :get %></td>
-
-            <td><%= button_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
+<h1 class="text-center mt-4">Articles listing page</h1>
 
 
-        </tr>
-        <%end%>
+<% @articles.each do |article| %>
+    <div class="card text-center my-card shadow mb-5 bg-white rounded">
+        <div class="card-header">
+            Muhammad Abdullah
+        </div>
+        <div class="card-body">
+            <h5 class="card-title for-hover"><%= link_to article.title, article_path(article), class:"card-title for-hover"%></h5>
+            <p class="card-text"><%=article.description%></p>
+            <%= button_to 'Show', article_path(article), class:"btn btn-outline-primary my-button", method: :get %> <%= button_to 'Edit', edit_article_path(article),class:"btn btn-outline-primary my-button", method: :get %> <%= button_to 'Delete', article_path(article),class:"btn btn-outline-primary my-button", method: :delete, data: {confirm: "Are you sure?"} %>
+        </div>
+        <div class="card-footer text-body-secondary">
+            <small>Created : <%= time_ago_in_words(article.created_at)%> ago, </small>
+            <small>Updated : <%= time_ago_in_words(article.updated_at)%> ago</small>
 
-    </tbody>
-</table>
+        </div>
+    </div>
+
+
+<%end%>
+
 <br>
 <br>
 
